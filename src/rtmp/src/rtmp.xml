@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<config>
+	<channel>
+		<item>
+			<!-- 是否启用通道 -->
+			<enable>1</enable>
+			<!-- 媒体流ID(不可重复) -->
+			<id>100</id>
+			<input>
+				<!-- 摄像头捕获(Windows) -->
+				<!-- <url>vfwcap</url> -->
+				<!-- 摄像头编号(取值: 0,1,2 ...) -->
+				<!-- <device_name>0</device_name> -->
+				<!-- 摄像头取流(Windows) -->
+				<!-- <url>dshow</url> -->
+				<!-- 设备名称(取值: 'Integrated Webcam'等, '设备管理器'->'照相机'查看) -->
+				<!-- <device_name>Integrated Webcam</device_name> -->
+				<!-- 屏幕录制(Windows) -->
+				<!-- <url>gdigrab</url> -->
+				<!-- 设备名称(取值: 'desktop' -->
+				<!-- <device_name>desktop</device_name> -->
+				<!-- 摄像头取流(Linux) -->
+				<!-- <url>video4linux2</url> -->
+				<!-- 设备名称(取值: '/dev/video0' -->
+				<!-- <device_name>/dev/video0</device_name> -->
+				<!-- 文件取流(支持mp4,h264,flv,mov,mkv,ts) -->
+				<!-- <url>F:\\work\\code\\demo\\build\\bin\\bubble_sort.flv</url> -->
+				<!-- 摄像头取流(rtsp方式) -->
+				<!-- rtsp://www.sirsir.cn/stream1.265 -->
+				<!-- rtsp://admin:abcd1234@192.168.1.64:554/Streaming/Channels/101 -->
+				<!-- rtsp://admin:yi505548@10.30.37.11:554/Streaming/Channels/3001 -->
+				<!-- rtsp://www.sirsir.cn/stream2.265 -->
+				<!-- /home/zk/work/tools/live555/stream2.265 -->
+				<url>/home/zk/work/tools/live555/stream2.265</url>
+				<!-- RTSP传输模式(取值:tcp,udp) -->
+				<rtsp_transport>tcp</rtsp_transport>
+				<!-- 超时时间,若未设置'stimeout'项,当IPC掉线时,av_read_frame函数会阻塞(单位:微妙) -->
+				<stimeout>3000000</stimeout>
+				<!-- 缓冲区大小 -->
+				<buffer_size>1024000</buffer_size>
+				<!--==================================================-->
+				<time_base>25</time_base>
+				<framerate>25</framerate>
+				<r_frame_rate>25</r_frame_rate>
+				<bit_rate>1600000</bit_rate>
+				<gop_size>50</gop_size>
+				<qmax>51</qmax>
+				<qmin>10</qmin>
+				<keyint_min>50</keyint_min>
+				<codec_tag>0</codec_tag>
+				<me_range>16</me_range>
+				<max_qdiff>4</max_qdiff>
+				<max_b_frames>1</max_b_frames>
+				<qcompress>0.3</qcompress>
+				<qblur>0</qblur>
+				<thread_count>32</thread_count>
+			</input>
+			<output>
+				<!-- 推流(rtmp方式) -->
+				<!-- rtmp://www.sirsir.cn/live -->
+				<!-- rtmp://10.10.2.41/live -->
+				<url>rtmp://www.sirsir.cn/live</url>
+				<!-- 输出格式名称(取值:mp4,flv(RTMP),mpegts(rtp)...) -->
+				<output_format>flv</output_format>
+			</output>
+		</item>
+		<item>
+			<!-- 是否启用通道 -->
+			<enable>0</enable>
+			<id>101</id>
+			<input>
+				<url>rtsp://admin:abcd1234@192.168.1.64:554/Streaming/Channels/101</url>
+				<rtsp_transport>tcp</rtsp_transport>
+				<stimeout>3000000</stimeout>
+				<buffer_size>1024000</buffer_size>
+			</input>
+			<output>
+				<url>rtmp://www.sirsir.cn/live</url>
+				<output_format>flv</output_format>
+			</output>
+		</item>
+		<item>
+			<enable>0</enable>
+			<id>200</id>
+			<input>
+				<!-- 文件取流(支持mp4,h264,flv,mov,mkv,ts) -->
+				<url>C:/Users/kun.zhang2/Desktop/stream_264.mp4</url>
+				<!-- <url>C:\\Work\\Demo\\demo\\build\\bin\\bubble_sort.flv</url> -->
+				<rtsp_transport></rtsp_transport>
+				<stimeout></stimeout>
+				<buffer_size>1024000</buffer_size>
+			</input>
+			<output>
+				<url>rtmp://10.10.5.60:1935/live</url>
+				<output_format>flv</output_format>
+			</output>
+		</item>
+		<item>
+			<enable>0</enable>
+			<id>201</id>
+			<input>
+				<!-- 文件取流(支持mp4,h264,flv,mov,mkv,ts) -->
+				<url>C:/Users/kun.zhang2/Desktop/stream_265.mp4</url>
+				<rtsp_transport></rtsp_transport>
+				<stimeout></stimeout>
+				<buffer_size>1024000</buffer_size>
+			</input>
+			<output>
+				<!-- 推流(rtp方式) -->
+				<url>rtmp://10.10.5.60:1935/live</url>
+				<output_format>flv</output_format>
+			</output>
+		</item>
+		<item>
+			<enable>0</enable>
+			<id>300</id>
+			<input>
+				<!-- 摄像头捕获 -->
+				<url>vfwcap</url>
+				<!-- 摄像头编号(取值: 0,1,2 ...) -->
+				<device_name>0</device_name>
+				<rtsp_transport></rtsp_transport>
+				<stimeout></stimeout>
+				<buffer_size>1024000</buffer_size>
+			</input>
+			<output>
+				<url>rtmp://192.168.0.220:1935/live</url>
+				<output_format>flv</output_format>
+			</output>
+		</item>
+		<item>
+			<enable>0</enable>
+			<id>301</id>
+			<input>
+				<!-- 摄像头取流 -->
+				<url>dshow</url>
+				<!-- 设备名称(取值: 'Integrated Webcam',Muxing supported等, '设备管理器'->'照相机'查看) -->
+				<device_name>Demuxing supported</device_name>
+				<rtsp_transport></rtsp_transport>
+				<stimeout></stimeout>
+				<buffer_size>1024000</buffer_size>
+			</input>
+			<output>
+				<url>rtmp://192.168.1.100:1935/live</url>
+				<output_format>flv</output_format>
+			</output>
+		</item>
+		<item>
+			<enable>0</enable>
+			<id>302</id>
+			<input>
+				<!-- 屏幕录制 -->
+				<url>gdigrab</url>
+				<!-- 设备名称(取值: 'desktop'或'title=窗口名' -->
+				<device_name>desktop</device_name>
+				<rtsp_transport></rtsp_transport>
+				<stimeout></stimeout>
+				<buffer_size>1024000</buffer_size>
+			</input>
+			<output>
+				<url>rtmp://192.168.0.220:1935/live</url>
+				<output_format>flv</output_format>
+			</output>
+		</item>
+		<item>
+			<!-- Linux -->
+			<enable>0</enable>
+			<id>303</id>
+			<input>
+				<!-- 摄像头取流 -->
+				<url>video4linux2</url>
+				<!-- 设备名称(取值: '/dev/video0' -->
+				<device_name>/dev/video0</device_name>
+				<rtsp_transport></rtsp_transport>
+				<stimeout></stimeout>
+				<buffer_size>1024000</buffer_size>
+			</input>
+			<output>
+				<url>rtmp://192.168.1.100:1935/live</url>
+				<output_format>flv</output_format>
+			</output>
+		</item>
+	</channel>
+</config>

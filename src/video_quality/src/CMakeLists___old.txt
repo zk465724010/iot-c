@@ -1,0 +1,63 @@
+cmake_minimum_required(VERSION 2.8)
+
+project(video_quality)
+set(CMAKE_BUILD_TYPE Debug)
+set(USE_QT_WIN64 OFF)
+add_definitions("-Wall")
+set(ATD_MASTER_ROOT ${PROJECT_SOURCE_DIR})
+
+
+set(ATD_MASTER_3RDPARTY_LIBS_DIR ${PROJECT_SOURCE_DIR}/../)
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+if(COMPILER_SUPPORTS_CXX11)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+elseif(COMPILER_SUPPORTS_CXX0X)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+endif()
+
+if (USE_QT_WIN64)
+
+else()
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${ATD_MASTER_ROOT}/bin_linux)
+    SET(LIBRARY_OUTPUT_PATH ${ATD_MASTER_ROOT}/lib_linux)
+
+    message(STATUS "================  -] building QT LINUX64 x86-64 [-  ================")
+
+    # lib3ds  todo: relative path
+    set(LIB_3DS_FFMPEG ${ATD_MASTER_3RDPARTY_LIBS_DIR}/ffmpeg-all-x264)
+    set(LIB_3DS_OPENCV ${ATD_MASTER_3RDPARTY_LIBS_DIR}/opencv-lib-contrib)
+   
+    find_package(JNI REQUIRED)
+    include_directories(${LIB_3DS_FFMPEG}/include ${LIB_3DS_OPENCV}/include/opencv4/  ${JNI_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR})
+    link_directories(${LIB_3DS_FFMPEG}/lib ${LIB_3DS_OPENCV}/lib64)
+
+
+    set(PROJECT_LIBRARIES_FFMPEG
+         swresample
+         avcodec
+         avformat
+         avutil
+         swscale
+        )
+        
+ 	set(PROJECT_LIBRARIES_OPENCV
+         opencv_highgui
+         opencv_core
+         opencv_imgcodecs
+         opencv_imgproc 
+        )
+        
+    add_library(${PROJECT_NAME} SHARED  "video_quality.cpp" )
+    TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${PROJECT_LIBRARIES_FFMPEG} ${PROJECT_LIBRARIES_OPENCV})
+
+    include_directories(${ATD_MASTER_ROOT})
+    add_executable("testopencv"   "test.cpp" )
+    set_target_properties(${PROJECT_NAME} PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}/${PROJECT_NAME}.so)
+
+    TARGET_LINK_LIBRARIES("testopencv" ${PROJECT_NAME} ${PROJECT_LIBRARIES_FFMPEG} ${PROJECT_LIBRARIES_OPENCV} )
+
+
+endif()

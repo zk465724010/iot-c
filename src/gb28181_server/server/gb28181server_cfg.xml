@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<config>
+    <platform>
+		<item>
+			<id>34020000002000000001</id>
+			<ip>192.168.0.105</ip>
+			<port>5060</port>
+			<domain>3402000000</domain>
+			<platform>GB/T28181-2016</platform>
+			<username>34020000002000000002</username>
+			<password>123456</password>
+			<expires>60</expires>
+			<register_interval>1</register_interval>
+			<keepalive>255</keepalive>
+			<enable>0</enable>
+		</item>
+    </platform>
+    <local>
+        <id>34020000002000000002</id>
+        <ip>192.168.0.105</ip>
+        <port>5070</port>
+		<pfm_ip>192.168.0.105</pfm_ip>
+        <pfm_port>5071</pfm_port>
+        <domain>3402000000</domain>  
+        <media_ip>192.168.0.105</media_ip>
+        <media_port>25060</media_port>
+        <password>123456</password>
+    </local>
+    <device>
+    </device>
+</config>

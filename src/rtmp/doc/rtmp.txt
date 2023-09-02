@@ -1,0 +1,47 @@
+参数实体:
+package com.unistrong.sdk.JNIEntity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * description: rtmp的通道参数
+ * date: 2021/01/20 14:12
+ * author: meng.he
+ */
+@Getter
+@Setter
+public class RtmpChannelParam {
+    private String channelId;  // 流的ID(不可重复)
+    private int type;   // 取流方式
+    private String takeUrl; // 取流地址(如：摄像头的rtsp地址)
+    private String pushRtmpUrl; // 推流地址(如:"rtmp://192.168.0.220:1935/live")
+}
+
+
+JNI定义:
+package com.unistrong.sdk.rtmp;
+
+import com.unistrong.sdk.JNIEntity.RtmpChannelParam;
+
+/**
+ * description: rtmp
+ * date: 2021/01/20 14:09
+ * author: meng.hes
+ */
+public class JNIRtmp {
+    /**
+     * 创建通道
+     * @param rtmpChannelParam
+     * @return
+     */
+    public native int createChannel(RtmpChannelParam rtmpChannelParam);
+
+    /**
+     * 销毁通道
+     * @param channelId
+     * @return
+     */
+    public native int destoryChannel(String channelId);
+}
+

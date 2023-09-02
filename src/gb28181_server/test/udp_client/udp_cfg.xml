@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<config>
+	<local_ip>192.168.0.105</local_ip>
+	<local_port>25060</local_port>
+	<peer_ip>192.168.0.105</peer_ip>
+	<peer_port>25060</peer_port>
+	<forward>0</forward>
+	<auto_send>
+		<text>Hello World 123456!</text>
+		<interval>1</interval>
+		<enable>1</enable>
+	</auto_send>
+	<msg_sava>
+		<path>D:/Work/video-c/gb28181_server/build/bin</path>
+		<!--name>test.ps</name-->
+		<suffix>.ps</suffix>
+		<mode>wb</mode>
+		<enable>1</enable>
+	</msg_sava>
+	<multicast>
+		<item>
+			<addr>224.0.0.100</addr>
+			<interface>192.168.0.105</interface>
+			<enable>0</enable>
+		</item>
+	</multicast>
+</config>

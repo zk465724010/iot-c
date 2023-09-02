@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<config>
+	<!-- 本地IP -->
+	<local_ip>192.168.3.14</local_ip>
+	<!-- 本地端口 -->
+	<local_port>25060</local_port>
+	<!-- TCP服务IP -->
+	<peer_ip>192.168.3.14</peer_ip>
+	<!-- TCP服务端口 -->
+	<peer_port>25070</peer_port>
+	<!-- 是否地址复用 -->
+	<reuse_address>1</reuse_address>
+	<msg_sava>
+		<!-- 是否启用消息保存 -->
+		<enable>1</enable>
+		<!-- 消息保存的文件名称,若为空则保存在当前目录中 -->
+		<filename></filename>
+		<!-- 写文件模式 -->
+		<mode>wb</mode>
+	</msg_sava>
+</config>

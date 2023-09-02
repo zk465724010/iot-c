@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<config>
+	<ip>192.168.0.105</ip>
+	<port>25060</port>
+	<multicast num="1">
+		<item>
+			<addr>224.0.0.100</addr>
+			<interface>192.168.0.105</interface>
+			<enable>0</enable>
+		</item>
+	</multicast>
+</config>

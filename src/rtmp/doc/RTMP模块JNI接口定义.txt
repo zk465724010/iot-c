@@ -1,0 +1,15 @@
+
+
+typedef struct channel_param
+{
+	char id[32] = { 0 };			// 流的ID (不可重复)
+	char input[128] = {0};			// 取流地址 (摄像头的rtsp地址)
+	char output[128] = {0};			// 推流地址 (如:"rtmp://192.168.0.220:1935/live")
+}channel_param_t;
+
+
+// 创建通道
+int create_channel(channel_param_t *param);
+
+// 销毁通道
+int destroy_channel(const char *id);

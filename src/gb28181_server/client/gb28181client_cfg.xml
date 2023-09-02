@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<config>
+    <local>
+        <ip>192.168.41.131</ip>
+    </local>
+    <gb28181server>
+        <udp_ip>192.168.41.131</udp_ip>
+        <udp_port>8660</udp_port>
+    </gb28181server>
+    <device>
+        <item>
+            <id>34020000001320000020</id>
+            <ip>192.168.41.156</ip>
+            <port>5060</port>
+			<record>
+				<item>
+					<start_time>2021-08-12T09:51:56</start_time>
+					<end_time>2021-08-12T10:12:59</end_time>
+					<filename>D:\Work\video-c\gb28181_server\build\bin\</filename>
+				</item>
+			</record>
+        </item>
+    </device>
+	<record>
+		<item>
+			<start_time>2021-08-12T09:51:56</start_time>
+			<end_time>2021-08-12T10:12:59</end_time>
+			<filename>D:\Work\video-c\gb28181_server\build\bin\</filename>
+		</item>
+	</record>
+</config>

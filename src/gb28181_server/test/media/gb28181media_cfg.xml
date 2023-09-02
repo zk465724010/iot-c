@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<config>
+    <local>
+        <ip>192.168.0.105</ip>
+        <port>25060</port>
+		<url>D:/Work/video-c/gb28181_server/build/bin/1629355047.ps</url>
+    </local>
+</config>

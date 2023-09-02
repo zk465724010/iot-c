@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<config>
+	<!-- Tcp服务IP -->
+	<local_ip>192.168.3.14</local_ip>
+	<!-- Tcp服务端口 -->
+	<local_port>25070</local_port>
+	<!-- 是否地址复用 -->
+	<reuse_address>1</reuse_address>
+	<auto_send>
+		<!-- 是否启用自动发送文件 -->
+		<enable>1</enable>
+		<!-- 是否循环发送文件 -->
+		<cycle_send>0</cycle_send>
+		<!-- 待发送的文件 -->
+		<filename>C:\Work\Demo\demo\build\bin\99.h264</filename>
+		<!-- 发送缓冲区大小 -->
+		<buf_size>10485760</buf_size>
+		<!-- 每次发送的包大小 -->
+		<pkt_size>1024</pkt_size>
+		<!-- 每包发送的间隔时间(单位:毫秒) -->
+		<interval>5</interval>
+	</auto_send>
+</config>

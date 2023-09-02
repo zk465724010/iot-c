@@ -1,0 +1,7 @@
+set(COMMON_PATH ${CMAKE_CURRENT_SOURCE_DIR}/common)
+#add_subdirectory(gb28181_server)
+#add_subdirectory(media_common)
+add_subdirectory(onvif_common)
+#add_subdirectory(rtmp)
+#add_subdirectory(tcp_server)
+#add_subdirectory(video_quality)
